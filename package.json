@@ -1,0 +1,19 @@
+{
+  "name": "ts-tic-tac-toe-terminal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run compile && node dist/index.js",
+    "compile": "cd typescript && tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
