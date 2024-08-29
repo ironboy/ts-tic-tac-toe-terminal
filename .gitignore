@@ -1,0 +1,8 @@
+# Always ignore
+node_modules
+
+# Ignore in projects that transpile code to a dist folder
+dist
+
+# Mac Specific (unncessary hidden file)
+.DS_Store
