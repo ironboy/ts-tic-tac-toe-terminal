@@ -5,11 +5,12 @@ import Player from './Player.js';
 export default class App {
 
   board: Board;
-  // note: if you don't want to have to assign player instances
-  // initially, like we do here, then add this to tsconfig.json, 
+  // note: if order to not be forced to assign player instances
+  // in the constructor (but be free to do in another method),
+  // add this to tsconfig.json, 
   // under compilerOptions: "strictPropertyInitialization": false
-  playerX: Player = new Player('Temp', 'X');
-  playerO: Player = new Player('Temp', 'O');
+  playerX: Player;
+  playerO: Player;
 
   constructor() {
     // a while-loop that let us play the game repeatedly
@@ -25,14 +26,14 @@ export default class App {
     }
   }
 
-  createPlayers() {
+  createPlayers(): void {
     console.clear();
     console.log('TIC-TAC-TOE\n');
-    this.playerX = new Player(prompt('Spelare X:s namn: '), 'X');
-    this.playerO = new Player(prompt('Spelare O:s namn: '), 'O');
+    this.playerX = new Player(prompt('Spelare X:s namn: '), 'X', this.board);
+    this.playerO = new Player(prompt('Spelare O:s namn: '), 'O', this.board);
   }
 
-  startGameLoop() {
+  startGameLoop(): void {
     // game loop - runs until the game is over
     while (!this.board.gameOver) {
       console.clear();
@@ -49,7 +50,7 @@ export default class App {
     }
   }
 
-  whoHasWonOnGameOver() {
+  whoHasWonOnGameOver(): void {
     // the game is over, tell the player who has one or if we have a draw
     console.clear();
     this.board.render();

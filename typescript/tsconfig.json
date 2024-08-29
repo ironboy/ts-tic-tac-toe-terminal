@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    /* See comment in App.ts */
+    "strictPropertyInitialization": false,
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

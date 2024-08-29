@@ -19,7 +19,7 @@ export default class Board {
   }
 
   // render = output/draw something
-  render() {
+  render(): void {
     let line = '\n' + '-'.repeat(13) + '\n';
     console.log(
       line +
@@ -30,7 +30,7 @@ export default class Board {
     );
   }
 
-  makeMove(color: string, row: number, column: number) {
+  makeMove(color: string, row: number, column: number): boolean {
     // don't make any move if the game is over
     if (this.gameOver) { return false; }
     // check that the color is X or O - otherwise don't make the move
@@ -59,7 +59,7 @@ export default class Board {
     return true;
   }
 
-  winCheck() {
+  winCheck(): string | false {
     // m - a short alias for this.matrix
     let m = this.matrix;
     // represent ways you can win as offset from ONE position on the board
@@ -93,7 +93,7 @@ export default class Board {
   }
 
   // check for a draw/tie
-  drawCheck() {
+  drawCheck(): boolean {
     // if no one has won and no empty positions then it's a draw
     return !this.winCheck() && !this.matrix.flat().includes(' ');
   }
